@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:recycling_app/pro/loser.dart';
+import 'package:recycling_app/screens/loser.dart';
 
 import 'package:recycling_app/screens/follow_Auctions.dart';
 import 'package:recycling_app/screens/home.dart';

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:recycling_app/pro/component/appBar.dart';
-import 'package:recycling_app/pro/component/txt.dart';
+import 'package:recycling_app/shared/appBar.dart';
+import 'package:recycling_app/shared/txt.dart';
 
 
 class Congratulation extends StatelessWidget{

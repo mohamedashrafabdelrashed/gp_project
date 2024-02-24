@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:recycling_app/pro/component/divider.dart';
-import 'package:recycling_app/pro/component/latestrectangle.dart';
-import 'package:recycling_app/pro/component/listuser.dart';
-import 'package:recycling_app/pro/component/txt.dart';
+import 'package:recycling_app/shared/latestrectangle.dart';
+
+import 'package:recycling_app/shared/txt.dart';
 import 'package:recycling_app/pro/pages/more.dart';
 import 'package:recycling_app/shared/colour_constant.dart';
 import 'package:recycling_app/shared/elvated_button.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recycling_app/pro/component/package.dart';
+
 import 'package:recycling_app/pro/pages/auction.dart';
 import 'package:recycling_app/pro/pages/camera.dart';
 import 'package:recycling_app/pro/pages/homePage.dart';

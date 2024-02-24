@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recycling_app/pro/component/txt.dart';
+import 'package:recycling_app/shared/txt.dart';
 
 
 Widget appBar(String name1,String name2,Color color) {

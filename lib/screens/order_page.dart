@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
-import 'package:recycling_app/pro/component/txt.dart';
+import 'package:recycling_app/shared/txt.dart';
 import 'package:recycling_app/shared/colour_constant.dart';
 import 'package:recycling_app/shared/elvated_button.dart';
 

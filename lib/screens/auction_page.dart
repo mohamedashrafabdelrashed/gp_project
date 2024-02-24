@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recycling_app/pro/component/txt.dart';
+import 'package:recycling_app/shared/txt.dart';
 import 'package:recycling_app/screens/navigation_page.dart';
 import 'package:recycling_app/shared/colour_constant.dart';
 import 'package:recycling_app/shared/elvated_button.dart';

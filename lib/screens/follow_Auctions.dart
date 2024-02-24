@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:recycling_app/models/auction.dart';
 
-import 'package:recycling_app/shared/auction_page.dart';
+import 'package:recycling_app/screens/auction_page.dart';
 import 'package:recycling_app/shared/card_Auction.dart';
 import 'package:recycling_app/shared/elvated_button.dart';
 
