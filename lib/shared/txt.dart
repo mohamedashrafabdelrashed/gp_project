@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-Widget txt(String text ,Color color, double size) {
+Widget txt(String text ,Color color, double size,bool bold) {
   return Text(
     text,
     style:TextStyle(color:color,
-    fontWeight: FontWeight.bold,
+    fontWeight: bold?FontWeight.bold:null,
+    
     fontSize:size,),
 
   );

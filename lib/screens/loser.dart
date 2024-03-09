@@ -48,53 +48,19 @@ class Loser extends StatelessWidget{
                 children: [
                    Padding(
                      padding: const EdgeInsets.all(10.0),
-                     child:txt('sorry, someone else won the Auction ', Color(0xff497126), 30),
+                     child:txt('sorry, someone else won the Auction ', Color(0xff497126), 30,false),
 
                    ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: txt('Better luck next time ', Colors.red, 30),
+                    child: txt('Better luck next time ', Colors.red, 30,false),
                   ),
                 ],
               )
 
 
             ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-
-              child:Row
-
-                (
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                  Container(
-                      decoration: ShapeDecoration(
-                        color: Color(0xff497126),
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.horizontal(
-                            left: Radius.circular(15),right: Radius.circular(15),
-
-                          ),
-                          side: const BorderSide(
-                            color: Color(0xff497126),
-                            width: 2,
-
-                          ),
-                        ),
-                      ),
-
-                      child: Icon(Icons.home_filled,size: 50,
-                        color: Colors.grey.shade100,)),
-                ],
-              ),
-
-            ),
-
+            
           ],),
       ),
     );

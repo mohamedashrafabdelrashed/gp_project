@@ -32,7 +32,7 @@ padding: EdgeInsets.all(20),
            width: 300,
            decoration: const BoxDecoration(
              image: DecorationImage(
-                 image: AssetImage('asset/assetGP/IMG-20231024-WA0012GPAUCTION.jpg'),
+                 image: AssetImage('assets/assetGP/IMG-20231024-WA0012GPAUCTION.jpg'),
                  fit: BoxFit.cover),
            ),
            //color: Color(0xffCACACA),
@@ -45,7 +45,7 @@ padding: EdgeInsets.all(20),
            Padding(
              padding: const EdgeInsets.all(10.0),
              child: Container(
-                child: txt('Congratulations, you won the auction',Color(0xff497126),30,),
+                child: txt('Congratulations, you won the auction',Color(0xff497126),30,false),
 
              ),
            ),

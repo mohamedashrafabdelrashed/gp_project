@@ -47,16 +47,7 @@ Widget latestrectangle(
               width: 10,
               height: 10,
             ),
-            // ElevatedButton(
-            //   child: Text("enter"),
-            //   onPressed: () {},
-            //   style: ElevatedButton.styleFrom(
-            //       primary: Color(0xff497126),
-            //       onPrimary: Colors.white,
-            //       shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(15),
-            //       )),
-            // )
+            
           ],
         ),
         SizedBox(

@@ -13,8 +13,8 @@ Widget appBar(String name1,String name2,Color color) {
       title:Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           txt('$name1',  Colors.grey.shade100,  30,),
-          txt('$name2',  color,  16,),
+           txt('$name1',  Colors.grey.shade100,  30,false),
+          txt('$name2',  color,  16,false),
         ],
       ),
 

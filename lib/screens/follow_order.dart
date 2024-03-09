@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recycling_app/models/order.dart';
+import 'package:recycling_app/screens/order_page.dart';
 import 'package:recycling_app/shared/card_order.dart';
 import 'package:recycling_app/shared/colour_constant.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:recycling_app/shared/elvated_button.dart';
-import 'package:recycling_app/shared/order_page.dart';
-
 
 class Follow_order extends StatelessWidget {
   Follow_order({super.key});
@@ -16,7 +15,7 @@ class Follow_order extends StatelessWidget {
         quantity: "200 tons",
         status: "sell",
         orderPrice: "100000 bounds",
-        image: "assets/images/paper.jpeg"),
+        image: "assets/images/paper.png"),
     order_model(
         itemName: "iron wire",
         condition: "accepted",
@@ -65,7 +64,6 @@ class Follow_order extends StatelessWidget {
           )
         ],
       ),
-     
       body: SingleChildScrollView(
         child: Column(
           children: [

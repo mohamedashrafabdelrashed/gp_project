@@ -2,14 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recycling_app/screens/camera.dart';
+import 'package:recycling_app/screens/cate.dart';
 
-import 'package:recycling_app/pro/pages/auction.dart';
-import 'package:recycling_app/pro/pages/camera.dart';
-import 'package:recycling_app/pro/pages/homePage.dart';
-import 'package:recycling_app/pro/pages/more.dart';
+
+
+
 import 'package:recycling_app/screens/follow_Auctions.dart';
 import 'package:recycling_app/screens/follow_order.dart';
 import 'package:recycling_app/screens/home.dart';
+import 'package:recycling_app/screens/more.dart';
 import 'package:recycling_app/shared/colour_constant.dart';
 
 class navigation_page extends StatefulWidget {
@@ -102,7 +104,7 @@ int currentPage =0;
                   margin: EdgeInsets.only(left: 40),
                   child: Icon(
                     Boxicons.bxs_package,
-                    color: currentPage == 3 ? Colors.white : Color(0xffB4E0D1),
+                    color: currentPage == 2 ? Colors.white : Color(0xffB4E0D1),
                   ),
                 ),
                 label: ""),
@@ -110,7 +112,7 @@ int currentPage =0;
                 icon: Icon(
                   
                   Icons.menu,
-                  color: currentPage == 4 ?  Colors.white : Color(0xffB4E0D1),
+                  color: currentPage == 3 ?  Colors.white : Color(0xffB4E0D1),
                   
                 ),
                 label: ""),
@@ -121,7 +123,7 @@ int currentPage =0;
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: [
-           Homee(),
+           category(),
            camera(),
            Follow_order(),
            more(),

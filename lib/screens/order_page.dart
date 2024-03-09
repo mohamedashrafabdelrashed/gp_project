@@ -126,8 +126,8 @@ class order_page extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            txt("size", green_color, 18),
-                                            txt(size, Colors.black, 18)
+                                            txt("size", green_color, 18,false),
+                                            txt(size, Colors.black, 18,false)
                                           ],
                                         ),
                                         SizedBox(
@@ -137,8 +137,8 @@ class order_page extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            txt("status", green_color, 18),
-                                            txt(status, Colors.black, 18)
+                                            txt("status", green_color, 18,false),
+                                            txt(status, Colors.black, 18,false)
                                           ],
                                         )
                                       ],
@@ -182,7 +182,7 @@ class order_page extends StatelessWidget {
                                 SizedBox(
                                   width: 8.0,
                                 ),
-                                txt("check", Color.fromARGB(120, 0, 0, 0), 22)
+                                txt("check", Color.fromARGB(120, 0, 0, 0), 22,false)
                               ],
                             ),
                             Container(
@@ -212,7 +212,7 @@ class order_page extends StatelessWidget {
                                   width: 8.0,
                                 ),
                                 txt(status == "sell" ? "accepted" : "received",
-                                    Color.fromARGB(202, 0, 0, 0), 22)
+                                    Color.fromARGB(202, 0, 0, 0), 22,false)
                               ],
                             ),
                             Container(
@@ -242,7 +242,7 @@ class order_page extends StatelessWidget {
                                   width: 8.0,
                                 ),
                                 txt(status == "sell" ? "accepted" : "received",
-                                    Color.fromARGB(202, 0, 0, 0), 22)
+                                    Color.fromARGB(202, 0, 0, 0), 22,false)
                               ],
                             ),
                           ],

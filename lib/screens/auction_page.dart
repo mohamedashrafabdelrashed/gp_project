@@ -53,7 +53,7 @@ class _auction_pageState extends State<auction_page> {
             txt(
               "Auctions",
               Colors.grey.shade100,
-              30,
+              30,false
             ),
           ],
         ),
@@ -113,7 +113,7 @@ class _auction_pageState extends State<auction_page> {
                     ),
                     Row(
                       children: [
-                        txt('Crochet Paper', Color(0xff497126), 30),
+                        txt('Crochet Paper', Color(0xff497126), 30,false),
                       ],
                     ),
                     Column(
@@ -123,12 +123,12 @@ class _auction_pageState extends State<auction_page> {
                             txt(
                               'size : ',
                               Color(0xff497126),
-                              24,
+                              24,false
                             ),
                             txt(
                               widget.item1!,
                               Colors.grey.shade500,
-                              15,
+                              15,false
                             ),
                           ],
                         ),
@@ -140,12 +140,12 @@ class _auction_pageState extends State<auction_page> {
                             txt(
                               'status : ',
                               Color(0xff497126),
-                              24,
+                              24,false
                             ),
                             txt(
                               widget.item2!,
                               Colors.grey.shade500,
-                              15,
+                              15,false
                             ),
                           ],
                         ),
@@ -157,9 +157,9 @@ class _auction_pageState extends State<auction_page> {
                         txt(
                           'Auction Went Up :',
                           Colors.black,
-                          25,
+                          25,false
                         ),
-                        txt(widget.item3!, Color(0xff497126), 30),
+                        txt(widget.item3!, Color(0xff497126), 30,false),
                       ],
                     ),
                     Row(
@@ -238,7 +238,7 @@ class _auction_pageState extends State<auction_page> {
                           child: txt(
                             'Retreat',
                             Colors.white,
-                            25,
+                            25,false
                           ),
                         )
                       ],

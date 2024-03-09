@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recycling_app/screens/cate.dart';
 import 'package:recycling_app/screens/follow_Auctions.dart';
 import 'package:recycling_app/screens/follow_order.dart';
 import 'package:recycling_app/screens/forget_Password.dart';
@@ -91,7 +92,7 @@ class _login_pageState extends State<login_page> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context,
+                      Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return navigation_page();
                       }));

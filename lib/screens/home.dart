@@ -1,204 +1,81 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:recycling_app/pro/component/divider.dart';
+import 'package:recycling_app/models/sub_cate.dart';
+import 'package:recycling_app/screens/create_order.dart';
+import 'package:recycling_app/screens/more.dart';
+import 'package:recycling_app/shared/divider.dart';
+import 'package:recycling_app/shared/drawer.dart';
+
 import 'package:recycling_app/shared/latestrectangle.dart';
 
 import 'package:recycling_app/shared/txt.dart';
-import 'package:recycling_app/pro/pages/more.dart';
+
 import 'package:recycling_app/shared/colour_constant.dart';
 import 'package:recycling_app/shared/elvated_button.dart';
-import 'package:recycling_app/shared/search.dart';
+import 'package:recycling_app/shared/textField.dart';
 
 class Homee extends StatefulWidget {
-  const Homee({super.key});
-
+  Homee({required this.category_desc, required this.category_name});
+  String category_name;
+  String category_desc;
   @override
   State<Homee> createState() => _HomeeState();
 }
 
 class _HomeeState extends State<Homee> {
-  String text = 'amira';
-  bool abbearing_search = false;
-  @override
-  void initState() {
-    abbearing_search = false;
-    super.initState();
-  }
+  List<sub_category_model> sub_cate_list = [
+    sub_category_model(
+        name: "Cardboard",
+        image: "assets/images/paper_sub_cate/Cardboard.webp",
+        price: "18.0 LE"),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Phone Books',
+        image: 'assets/images/paper_sub_cate/phonebook.webp'),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Juice Cartons',
+        image: 'assets/images/paper_sub_cate/fruit-juice-carton.webp'),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Boxes With Fancy \n      Coatings',
+        image: 'assets/images/paper_sub_cate/cereal-boxes.webp'),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Newspapers',
+        image: 'assets/images/paper_sub_cate/newspapers.webp'),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Office Paper',
+        image: 'assets/images/paper_sub_cate/office-papers.webp'),
+    sub_category_model(
+        price: '25.0 LE',
+        name: 'Magazines',
+        image: 'assets/images/paper_sub_cate/magazines.webp'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: green_color,
       drawerEnableOpenDragGesture: true,
-      drawer: Drawer(
-        // backgroundColor: green_color,
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: txt(
-                'Amira Mahmoud',
-                Colors.white,
-                18,
-              ),
-              accountEmail: txt(
-                'am6391@gmail.com',
-                Colors.white,
-                18,
-              ),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/iron wire.jpeg"),
-                backgroundColor: Colors.white,
-              ),
-              decoration: BoxDecoration(
-                
-                  image: DecorationImage(fit: BoxFit.cover,
-                      image: AssetImage("assets/images/cooper.jpeg",))),
-            ),
-            ListTile(
-                title: Text("Personal account"),
-                leading: Icon(
-                  Icons.person,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-            divider(
-              0.5,
-              1,
-              green_color,
-            ),
-            ListTile(
-                title: Text("payment"),
-                leading: Icon(
-                  Icons.payment,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-            divider(
-              0.5,
-              3,
-              green_color,
-            ),
-            ListTile(
-                title: Text("favourite"),
-                leading: Icon(
-                  Icons.favorite,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-            divider(
-              0.5,
-              3,
-              green_color,
-            ),
-            ListTile(
-                title: Text("common questions"),
-                leading: Icon(
-                  Icons.question_mark,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-            divider(
-              0.5,
-              3,
-              green_color,
-            ),
-            ListTile(
-                title: Text("Contact us"),
-                leading: Icon(
-                  Icons.headset_mic,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-            divider(
-              0.5,
-              3,
-              green_color,
-            ),
-            ListTile(
-                title: Text("terms and conditions"),
-                leading: Icon(
-                  Icons.policy,
-                  size: 30,
-                  color: green_color,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => more(),
-                    ),
-                  );
-                }),
-          ],
-        ),
-      ),
+      drawer: drawer(),
       appBar: AppBar(
-        // leading: IconButton(
-        //     onPressed: () {
-
-        //     },
-        //     icon: Icon(
-        //       Icons.notification_important,
-        //       size: 30,
-        //       color: Color.fromARGB(237, 255, 255, 255),
-        //     )),
         title: Text(
-          'hello ${text.toString()}',
+          "${widget.category_name} types",
           style: TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                setState(() {
-                  abbearing_search = !abbearing_search;
-                });
-              },
-              icon: Icon(
-                !abbearing_search ? Icons.search : Icons.search_off,
-                color: Colors.white,
-              ))
+            onPressed: () {},
+            icon: Icon(
+              Icons.notifications_on,
+              color: Colors.yellow[900],
+              size: 30,
+            ),
+          )
         ],
         backgroundColor: green_color,
       ),
@@ -207,121 +84,67 @@ class _HomeeState extends State<Homee> {
         height: double.infinity,
         child: Column(
           children: [
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                color: green_color,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Visibility(visible: abbearing_search, child: search_bar()),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          button_style(Data: "All"),
-                          button_style(Data: "Timber"),
-                          button_style(Data: "iron"),
-                          button_style(Data: "Plastic"),
-                          button_style(Data: "paper"),
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
             Expanded(
               child: Container(
-                width: double.infinity,
-                height: 640,
-                margin: EdgeInsets.only(top: abbearing_search ? 0 : 18),
-                padding: EdgeInsets.fromLTRB(10, 15, 10, 3),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25))),
-                child: ListView(children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'latest ',
-                          style: TextStyle(
-                            color: green_color,
-                            fontSize: 18,
+                  width: double.infinity,
+                  height: 640,
+                  margin: EdgeInsets.only(top: 18),
+                  padding: EdgeInsets.fromLTRB(5, 15, 5, 3),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25))),
+                  child: ListView.builder(
+                      itemCount: sub_cate_list.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return create_order(image:sub_cate_list[index].image ,price:sub_cate_list[index].price ,name: sub_cate_list[index].name,);
+                              }));
+                            },
+                            child: Card(
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Column(
+                                        children: [
+                                          txt(sub_cate_list[index].name,
+                                              green_color, 18, true),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          txt("price :${sub_cate_list[index].price}",
+                                              green_color, 18, false),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 100,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  sub_cate_list[index].image))),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                        Icon(
-                          Icons.tune_outlined,
-                          color: green_color,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        latestrectangle(
-                            'assets/assetGP/razanwood.jpg',
-                            'Razan wood',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '18.000 LE'),
-                        latestrectangle(
-                            'assets/assetGP/iron.jfif',
-                            'iron',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '25.000 LE'),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        latestrectangle(
-                            'assets/assetGP/razanwood.jpg',
-                            'Razan wood',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '18.000 LE'),
-                        latestrectangle(
-                            'assets/assetGP/iron.jfif',
-                            'iron',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '25.000 LE'),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        latestrectangle(
-                            'assets/assetGP/plastec.jfif',
-                            'Plastic',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '18.000 LE'),
-                        latestrectangle(
-                            'assets/assetGP/corashenew.jpg',
-                            'Crochet paper',
-                            '5 1h : 25m : 47s',
-                            'The tender begins with',
-                            '18.000 LE'),
-                      ],
-                    ),
-                  ),
-                ]),
-              ),
+                        );
+                      })),
             ),
           ],
         ),

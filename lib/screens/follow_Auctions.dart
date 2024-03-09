@@ -19,7 +19,7 @@ class _follow_AuctionState extends State<follow_Auction> {
         itemName: "paper",
         quantity: 1450.3,
         status: "false",
-        image: "assets/images/paper.jpeg",
+        image: "assets/images/paper.png",
         time: "00:00",
         yourPrice: "15.500LE"),
     auction_model(
