@@ -23,32 +23,37 @@ class _register_pageState extends State<register_page> {
   bool isLoading = false;
   final F_nameController = TextEditingController();
   final L_nameController = TextEditingController();
+  final username_Controller = TextEditingController();
   final EmailController = TextEditingController();
+  final AgeController = TextEditingController();
+  final BirthdayController = TextEditingController();
   final PasswordController = TextEditingController();
   final P_numberController = TextEditingController();
   final AddressController = TextEditingController();
+  List<String> _genderOptions = ['Male', 'Female'];
+  String? gender_selection;
 
   onclickregister() async {
     if (_formKey.currentState!.validate()) {
       setState(() {
         isLoading = true;
       });
-      await auth().signup(
-          userData: UserData(
-              Fname: F_nameController.text,
-              Lname: L_nameController.text,
-              email: EmailController.text,
-              password: PasswordController.text,
-              Phone_number: P_numberController.text,
-              Address: AddressController.text));
-      // await Auth().register(
-      //     email: emailController.text,
-      //     password: passwordController.text,
-      //     context: context,
-      //     username: usernameController.text,
-      //     title: titleController.text,
-      //     imgpath: imgPath,
-      //     imgname: imgName);
+      await auth().signup(userData: {
+        'firstname': F_nameController.text,
+        'lastName': L_nameController.text,
+        'email': EmailController.text,
+        'password': PasswordController.text,
+        'rePassword': PasswordController.text,
+        'phone': P_numberController.text,
+        "address": AddressController.text,
+        'userName': username_Controller.text,
+        'Age': AgeController.text,
+        'Gender': gender_selection.toString(),
+        'DOB': DateTime.parse(
+          BirthdayController.text,
+        )
+      });
+
       setState(() {
         isLoading = false;
       });
@@ -64,6 +69,9 @@ class _register_pageState extends State<register_page> {
     F_nameController.dispose();
     L_nameController.dispose();
     EmailController.dispose();
+    username_Controller.dispose();
+    AgeController.dispose();
+    BirthdayController.dispose();
     PasswordController.dispose();
     P_numberController.dispose();
     AddressController.dispose();
@@ -112,6 +120,21 @@ class _register_pageState extends State<register_page> {
                     controller: L_nameController,
                     decoration: decorationTextfield.copyWith(
                         hintText: "Last name : ",
+                        suffixIcon: IconButton(
+                            onPressed: () {}, icon: Icon(Icons.person)))),
+                SizedBox(
+                  height: 12,
+                ),
+                TextFormField(
+                    validator: (value) {
+                      return value!.isEmpty ? "Enter username " : null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    controller: username_Controller,
+                    decoration: decorationTextfield.copyWith(
+                        hintText: "Username : ",
                         suffixIcon: IconButton(
                             onPressed: () {}, icon: Icon(Icons.person)))),
                 SizedBox(
@@ -172,6 +195,33 @@ class _register_pageState extends State<register_page> {
                 ),
                 TextFormField(
                     validator: (value) {
+                      return value!.isEmpty ? "Enter your Age " : null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    textInputAction: TextInputAction.next,
+                    controller: AgeController,
+                    keyboardType: TextInputType.number,
+                    decoration: decorationTextfield.copyWith(
+                        hintText: "Age : ",
+                        suffixIcon: Icon(Icons.date_range))),
+                SizedBox(
+                  height: 12,
+                ),
+                TextFormField(
+                    validator: (value) {
+                      return value!.isEmpty ? "Enter your Birthday " : null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    textInputAction: TextInputAction.next,
+                    controller: BirthdayController,
+                    decoration: decorationTextfield.copyWith(
+                        hintText: "Birthday : ",
+                        suffixIcon: Icon(Icons.date_range))),
+                SizedBox(
+                  height: 12,
+                ),
+                TextFormField(
+                    validator: (value) {
                       return value!.isEmpty ? "Enter Your address " : null;
                     },
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -181,6 +231,32 @@ class _register_pageState extends State<register_page> {
                         suffixIcon: Icon(Icons.home))),
                 SizedBox(
                   height: 12,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "gender",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    DropdownButton(
+                      value: gender_selection,
+                      onChanged: (value) {
+                        setState(() {
+                          gender_selection = value;
+                          print(gender_selection);
+                        });
+                      },
+                      items: _genderOptions.map((String location) {
+                        return new DropdownMenuItem<String>(
+                          child: new Text(location),
+                          value: location,
+                        );
+                      }).toList(),
+                    )
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
@@ -239,8 +315,23 @@ class _register_pageState extends State<register_page> {
                       padding: EdgeInsets.all(5),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        onclickregister();
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          await auth().signup(userData: {
+                            "firstName": F_nameController.text,
+                            "lastName": L_nameController.text,
+                            "userName": username_Controller.text,
+                            "email": EmailController.text,
+                            "Age": int.tryParse(AgeController.text),
+                            "address": AddressController.text,
+                            "password": PasswordController.text,
+                            "rePassword": PasswordController.text,
+                            "DOB": BirthdayController.text,
+                            "phone": P_numberController.text,
+                            "Gender": gender_selection
+                          });
+                         
+                        }
                       },
                       child: isLoading
                           ? CircularProgressIndicator(
@@ -259,7 +350,7 @@ class _register_pageState extends State<register_page> {
                                   horizontal: 40, vertical: 15))),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

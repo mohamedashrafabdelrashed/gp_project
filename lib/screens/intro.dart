@@ -6,6 +6,8 @@ import 'package:recycling_app/screens/register.dart';
 
 import 'package:recycling_app/shared/logo.dart';
 
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 class Into_page extends StatefulWidget {
   Into_page({super.key});
 
@@ -14,6 +16,7 @@ class Into_page extends StatefulWidget {
 }
 
 class _Into_pageState extends State<Into_page> {
+  final controller = PageController(viewportFraction: 0.8, keepPage: true);
   final List<String> pages = [
     "n today's world, the need for sustainable practices and environmental consciousness has become more crucial than ever. Recycling plays a significant role in reducing waste, conserving resources, and minimizing our ecological footprint. ",
     "To make recycling more accessible and convenient for individuals and communities, we are proud to present our innovative recycling application.",
@@ -22,7 +25,7 @@ class _Into_pageState extends State<Into_page> {
   ];
 
   int indexx = 0;
-  int ind_color = 0;
+ 
   bool skip = false;
 
   @override
@@ -40,11 +43,7 @@ class _Into_pageState extends State<Into_page> {
                 : SizedBox(
                     height: 200,
                   ),
-            // CircleAvatar(
-            //   radius: 150,
-            //   backgroundImage:
-            //       AssetImage("assets/images/Screenshot 2023-12-07 195248.png"),
-            // ),
+           
             logo(),
             SizedBox(
               height: 100,
@@ -55,22 +54,22 @@ class _Into_pageState extends State<Into_page> {
                       SizedBox(
                         height: 250,
                         child: PageView.builder(
+                          controller: controller,
                           onPageChanged: (index) {
                             setState(() {
                               indexx = index;
                               if (index == 2) {
-                                ind_color = 2;
+                                indexx = 2;
                               }
                             });
                           },
                           itemCount: pages.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
-                              // Customize the background color of each page
-                              child: Center(
-                                  child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 10),
+                              
+                              
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Text(
                                   pages[index],
                                   style: TextStyle(
@@ -78,52 +77,27 @@ class _Into_pageState extends State<Into_page> {
                                   ),
                                   textAlign: TextAlign.justify,
                                 ),
-                              )),
+                              ),
                             );
                           },
                         ),
                       ),
                       SizedBox(
-                        height: 100,
+                        height: 70,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 9,
-                            height: 9,
-                            decoration: BoxDecoration(
-                                color:
-                                    indexx == 0 ? Colors.black : Colors.white,
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            width: 9,
-                            height: 9,
-                            decoration: BoxDecoration(
-                                color:
-                                    indexx == 1 ? Colors.black : Colors.white,
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            width: 9,
-                            height: 9,
-                            decoration: BoxDecoration(
-                                color:
-                                    indexx == 2 ? Colors.black : Colors.white,
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                        ],
+                      
+                      SmoothPageIndicator(
+                        controller: controller,
+                        count: pages.length,
+                        effect: const ExpandingDotsEffect(
+                          dotColor: Colors.grey,
+                          activeDotColor: Colors.black,
+                          dotHeight: 10,
+                          spacing: 4,
+                          expansionFactor: 2,dotWidth: 10
+                        ),
                       ),
+
                       SizedBox(
                         height: 20,
                       ),
@@ -143,8 +117,8 @@ class _Into_pageState extends State<Into_page> {
                                 width: 50,
                                 child: Text("Skip"),
                                 decoration: BoxDecoration(
-                                    color: ind_color == 2
-                                        ? Color(0xff54E360)
+                                    color: indexx == 2
+                                        ? Color(0xff599E7D)
                                         : Color.fromARGB(52, 158, 158, 158),
                                     borderRadius: BorderRadius.circular(15)),
                               ),

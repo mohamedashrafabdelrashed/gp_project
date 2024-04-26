@@ -18,7 +18,6 @@ class category extends StatefulWidget {
 class _categoryState extends State<category> {
   String text = 'amira';
   List<category_model> listCate = [
-    
     category_model(
         describition:
             "Recycling paper has multiple environmental benefits. It helps save trees by reducing the demand for virgin wood pulp, conserves water and energy, and reduces air pollution associated with paper production. Recycling paper also helps divert waste from landfills, which reduces greenhouse gas emissions and promotes a circular economy.",
@@ -54,7 +53,7 @@ class _categoryState extends State<category> {
     return Scaffold(
       backgroundColor: green_color,
       drawerEnableOpenDragGesture: true,
-      drawer:drawer(),
+      drawer: drawer(),
       appBar: AppBar(
         title: Text(
           'hello ${text.toString()}',
@@ -63,9 +62,7 @@ class _categoryState extends State<category> {
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                
-              },
+              onPressed: () {},
               icon: Icon(
                 Icons.notifications_on,
                 color: Colors.yellow[900],
@@ -82,7 +79,7 @@ class _categoryState extends State<category> {
                 width: double.infinity,
                 height: 640,
                 margin: EdgeInsets.only(top: 18),
-                padding: EdgeInsets.fromLTRB(10, 15, 10, 3),
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 3),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -97,11 +94,14 @@ class _categoryState extends State<category> {
                       child: SizedBox(
                         width: 350, // Width of each card
                         child: GestureDetector(
-                          onTap: (){
-                            Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) {
-                                      return Homee(category_desc: listCate[index].describition,category_name: listCate[index].name,);
-                                  }));
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return Homee(
+                                category_desc: listCate[index].describition,
+                                category_name: listCate[index].name,
+                              );
+                            }));
                           },
                           child: Card(
                             margin: EdgeInsets.symmetric(
@@ -121,14 +121,16 @@ class _categoryState extends State<category> {
                                 SizedBox(
                                   height: 30,
                                 ),
-                                txt(listCate[index].name, green_color, 24,false),
+                                txt(listCate[index].name, green_color, 24,
+                                    false),
                                 SizedBox(
                                   height: 40,
                                 ),
                                 Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: txt(listCate[index].describition,
-                                        green_color, 16,false))
+                                    child: Text(
+                                      listCate[index].describition,
+                                    ))
                               ],
                             ),
                           ),

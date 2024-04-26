@@ -17,7 +17,7 @@ class Recycling_app extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: navigation_page(),
+      home: Into_page(),  
     );
   }
 }
