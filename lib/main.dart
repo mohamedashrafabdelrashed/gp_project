@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recycling_app/screens/congratulation.dart';
-import 'package:recycling_app/screens/home.dart';
-import 'package:recycling_app/screens/intro.dart';
-import 'package:recycling_app/screens/loser.dart';
-import 'package:recycling_app/screens/navigation_page.dart';
+import 'package:recycling_app/presentation/screens/intro.dart';
+
 
 
 void main() {
